@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Gaur City",
+    "safety": 8,
+    "affordability": 7,
+    "commute": 6,
+    "noise": 5,
+    "internet": 9,
+     "petFriendly": true,
+    "description": "Gaur City offers excellent infrastructure, great internet connectivity, and a balanced lifestyle. Ideal for families and working professionals.",
+    "images": [
+      "/images/gaur1.jpg",
+      "/images/gaur2.jpg",
+      "/images/gaur3.jpg",
+      "/images/gaur4.jpg"
+    ]
+  },
+  {
+    "name": "Jaypee Greens",
+    "safety": 9,
+    "affordability": 5,
+    "commute": 7,
+    "noise": 4,
+    "internet": 10,
+     "petFriendly": true,
+    "description": "Jaypee Greens is known for its premium living, golf course, greenery, and top-notch amenities. Great for those seeking luxury living.",
+    "images": [
+      "/images/jaypee1.jpg",
+      "/images/jaypee2.jpg",
+      "/images/jaypee3.jpg",
+      "/images/jaypee4.jpg",
+      "/images/jaypee5.jpg"
+    ]
+  },
+  {
+    "name": "ATS",
+    "safety": 8,
+    "affordability": 6,
+    "commute": 7,
+    "noise": 4,
+    "internet": 9,
+     "petFriendly": true,
+    "description": "ATS projects are renowned for quality construction, security, and peaceful surroundings. Popular among families.",
+    "images": [
+      "/images/ats1.jpg",
+      "/images/ats2.jpg",
+      "/images/ats3.jpg",
+      "/images/ats4.jpg"
+    ]
+  },
+  {
+    "name": "Eldeco",
+    "safety": 7,
+    "affordability": 7,
+    "commute": 6,
+    "noise": 5,
+    "internet": 8,
+     "petFriendly": true,
+    "description": "Eldeco societies provide affordable housing options with good connectivity and basic amenities.",
+    "images": [
+      "/images/eldeco1.jpg",
+      "/images/eldeco2.jpg",
+      "/images/eldeco3.jpg",
+      "/images/eldeco4.jpg",
+      "/images/eldeco5.jpg"
+
+    ]
+  },
+  {
+    "name": "Saya",
+    "safety": 8,
+    "affordability": 6,
+    "commute": 7,
+    "noise": 3,
+    "internet": 9,
+     "petFriendly": true,
+    "description": "Saya offers well-designed apartments with modern facilities and good connectivity, making it ideal for professionals.",
+    "images": [
+      "/images/saya1.jpg",
+      "/images/saya2.jpg",
+      "/images/saya3.jpg",
+      "/images/saya4.jpg"
+    ]
+  }
+]
