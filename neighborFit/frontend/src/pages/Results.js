@@ -1,29 +1,41 @@
 import Navbar from '../components/Navbar';
 import { useEffect, useState } from 'react';
-import neighborhoodData from '../data/neighborhoods.json';
+
 import { Link } from 'react-router-dom';
 
 export default function Results() {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    const prefs = JSON.parse(localStorage.getItem('preferences'));
-    if (!prefs) return;
+  const fetchNeighborhoods = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/api/neighborhoods');
+      const data = await res.json();
 
-    const scored = neighborhoodData.map(area => {
-      const score =
-        (area.safety * prefs.safety * 0.3) +
-        (area.affordability * prefs.affordability * 0.2) +
-        (area.commute * prefs.commute * 0.2) +
-        ((10 - area.noise) * prefs.noise * 0.1) +
-        (area.internet * prefs.internet * 0.2);
+      const prefs = JSON.parse(localStorage.getItem('preferences'));
+      if (!prefs) return;
 
-      return { ...area, matchScore: score.toFixed(2) };
-    });
+      const scored = data.map(area => {
+        const score =
+          (area.safety * prefs.safety * 0.3) +
+          (area.affordability * prefs.affordability * 0.2) +
+          (area.commute * prefs.commute * 0.2) +
+          ((10 - area.noise) * prefs.noise * 0.1) +
+          (area.internet * prefs.internet * 0.2);
 
-    scored.sort((a, b) => b.matchScore - a.matchScore);
-    setMatches(scored);
-  }, []);
+        return { ...area, matchScore: score.toFixed(2) };
+      });
+
+      scored.sort((a, b) => b.matchScore - a.matchScore);
+      setMatches(scored);
+    } catch (err) {
+      console.error("Failed to fetch neighborhoods:", err);
+    }
+  };
+
+  fetchNeighborhoods();
+}, []);
+
 
   const getBadgeColor = (score) => {
     if (score >= 80) return "bg-green-500";

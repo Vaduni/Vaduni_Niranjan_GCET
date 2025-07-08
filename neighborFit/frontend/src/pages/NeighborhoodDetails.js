@@ -1,30 +1,36 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import neighborhoodData from '../data/neighborhoods.json';
 import Navbar from '../components/Navbar';
-import { useState, useEffect } from 'react';
 import { FaShieldAlt, FaMoneyBillWave, FaBus, FaVolumeDown, FaWifi, FaPhoneAlt } from 'react-icons/fa';
 
 export default function NeighborhoodDetails() {
   const { name } = useParams();
-  const area = neighborhoodData.find(n => n.name === name);
+  const [area, setArea] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % area.images.length);
-    }, 3000); // Auto-change every 3 seconds
+    const fetchNeighborhoods = async () => {
+      try {
+        const response = await fetch('http://localhost:5500/api/neighborhoods');
+        const data = await response.json();
+        const found = data.find((n) => n.name === name);
+        setArea(found);
+      } catch (error) {
+        console.error('Error fetching neighborhood data:', error);
+      }
+    };
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [area.images.length]);
+    fetchNeighborhoods();
+  }, [name]);
 
-  if (!area) {
-    return (
-      <>
-        <Navbar />
-        <div className="p-6 text-center">Neighborhood not found.</div>
-      </>
-    );
-  }
+  useEffect(() => {
+    if (area?.images?.length) {
+      const interval = setInterval(() => {
+        setCurrentImage((prev) => (prev + 1) % area.images.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [area]);
 
   const nextImage = () => {
     setCurrentImage((currentImage + 1) % area.images.length);
@@ -34,11 +40,19 @@ export default function NeighborhoodDetails() {
     setCurrentImage((currentImage - 1 + area.images.length) % area.images.length);
   };
 
+  if (!area) {
+    return (
+      <>
+        <Navbar />
+        <div className="p-6 text-center">Loading neighborhood details...</div>
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
       <div className="min-h-screen bg-gray-50 py-8 px-4 flex flex-col items-center">
-        
         {/* Image Carousel */}
         <div className="relative w-full max-w-4xl mb-6">
           <img
@@ -47,10 +61,16 @@ export default function NeighborhoodDetails() {
             className="w-full h-72 sm:h-96 object-cover rounded-xl shadow-lg transition-all duration-700"
           />
 
-          <button onClick={prevImage} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200">
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200"
+          >
             ◀
           </button>
-          <button onClick={nextImage} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200">
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200"
+          >
             ▶
           </button>
         </div>
@@ -63,7 +83,6 @@ export default function NeighborhoodDetails() {
 
         {/* Highlights with Icons */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl w-full">
-          
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <FaShieldAlt className="mx-auto text-green-600 text-2xl mb-2" />
             <h4 className="text-lg font-semibold text-gray-700">Safety</h4>
@@ -93,7 +112,6 @@ export default function NeighborhoodDetails() {
             <h4 className="text-lg font-semibold text-gray-700">Internet</h4>
             <p className="text-xl text-gray-800">{area.internet} / 10</p>
           </div>
-
         </div>
 
         {/* Contact Button */}
