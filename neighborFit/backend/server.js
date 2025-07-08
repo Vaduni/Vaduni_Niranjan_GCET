@@ -8,8 +8,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5500',
-  credentials: true
+  origin: 'https://neighborfit-omega.vercel.app' 
 }));
 app.use(express.json());
 

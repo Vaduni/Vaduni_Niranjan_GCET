@@ -9,7 +9,7 @@ export default function Results() {
   useEffect(() => {
   const fetchNeighborhoods = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/neighborhoods');
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/data`);
       const data = await res.json();
 
       const prefs = JSON.parse(localStorage.getItem('preferences'));
