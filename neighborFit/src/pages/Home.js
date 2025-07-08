@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { FaCity, FaSlidersH, FaMapMarkedAlt, FaHome } from 'react-icons/fa';
+import { FaCity } from 'react-icons/fa';
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <Navbar />
 
       <div
-        className="min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-center px-4 relative"
+        className="min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-center px-3 relative"
         style={{ backgroundImage: `url('/images/home.jpg')` }}
       >
 
@@ -29,22 +29,8 @@ export default function Home() {
           >
             Find Your Match
           </Link>
-        </div>
+        </div>     
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center z-10">
-          <Link to="/" className="bg-white bg-opacity-60 backdrop-blur-md p-6 rounded-xl shadow-md w-60 flex flex-col items-center hover:scale-105 transition">
-            <FaHome className="text-neighborhood text-4xl mb-3" />
-            <h3 className="text-xl font-semibold text-gray-800">Home</h3>
-          </Link>
-          <Link to="/preferences" className="bg-white bg-opacity-60 backdrop-blur-md p-6 rounded-xl shadow-md w-60 flex flex-col items-center hover:scale-105 transition">
-            <FaSlidersH className="text-neighborhood text-4xl mb-3" />
-            <h3 className="text-xl font-semibold text-gray-800">Preferences</h3>
-          </Link>
-          <Link to="/results" className="bg-white bg-opacity-60 backdrop-blur-md p-6 rounded-xl shadow-md w-60 flex flex-col items-center hover:scale-105 transition">
-            <FaMapMarkedAlt className="text-neighborhood text-4xl mb-3" />
-            <h3 className="text-xl font-semibold text-gray-800">Results</h3>
-          </Link>
-        </div>
       </div>
 
       {/* Footer */}
