@@ -11,7 +11,7 @@ export default function NeighborhoodDetails() {
   useEffect(() => {
     const fetchNeighborhoods = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/data`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/neighborhoods`);
         const data = await response.json();
         const found = data.find((n) => n.name === name);
         setArea(found);
