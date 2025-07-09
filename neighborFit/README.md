@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+🏡 NeighborFit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application that recommends neighborhoods based on your lifestyle preferences using data-driven scoring and real-world filtering logic.
 
-## Available Scripts
 
-In the project directory, you can run:
+-> Live Demo
+ [Click here to try NeighborFit](https://neighbourfit-three.vercel.app)
 
-### `npm start`
+-> Project Objective
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+NeighborFit** solves the neighborhood-lifestyle matching problem. Users enter their lifestyle preferences (like safety, internet, affordability, commute), and the app recommends the best-fit neighborhoods using a custom algorithm.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ -> Features
 
-### `npm test`
+- Lifestyle-based neighborhood recommendation
+- Real-time matching score with dynamic UI
+- Pet-friendly tag display
+- Clean, responsive UI (mobile + desktop)
+- Loading spinner while fetching results
+- Full-stack: frontend, backend, and API integration
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-> Tech Stack
 
-### `npm run build`
+| Frontend        | Backend       | Styling         | Deployment       |
+|-----------------|---------------|------------------|------------------|
+| React (CRA)     | Node.js + Express (API) | Tailwind CSS     | Vercel (frontend) / Render (backend) |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ How It Works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. User selects lifestyle preferences on `/preferences`
+2. Data is stored locally in browser
+3. On `/results`, the frontend fetches real neighborhood data from an API
+4. Each neighborhood is scored with this formula:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+matchScore = 
+  (safety * weight) +
+  (affordability * weight) +
+  (commute * weight) +
+  ((10 - noise) * weight) +
+  (internet * weight);
