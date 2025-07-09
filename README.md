@@ -2,9 +2,16 @@
 
 A full-stack web application that recommends neighborhoods based on your lifestyle preferences using data-driven scoring and real-world filtering logic.
 
+-> Problem Statement
+
+Finding the right neighborhood that matches a person’s lifestyle is a challenge, especially when relocating to a new city. While many platforms focus on real estate listings, they do not help users decide where to live based on important lifestyle factors like safety, affordability, internet access, commute, and noise levels,pet frindly.
 
 -> Live Demo
  [Click here to try NeighborFit](https://neighbourfit-three.vercel.app)
+
+->[Frontend Live](https://neighbourfit-three.vercel.app)
+->[Backend API Base URL](https://neighborfit-api.onrender.com)
+
 
 -> Project Objective
 
