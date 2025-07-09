@@ -1,11 +1,11 @@
-// src/App.js
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Preferences from './pages/Preferences';
 import Results from './pages/Results';
 import NeighborhoodDetails from './pages/NeighborhoodDetails';
 import About from './pages/About';
-import Navbar from './components/Navbar'; // ✅ ADD THIS
+import Navbar from './components/Navbar'; 
 
 function App() {
   return (

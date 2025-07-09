@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { FaShieldAlt, FaMoneyBillWave, FaBus, FaVolumeDown, FaWifi, FaPhoneAlt } from 'react-icons/fa';
+import { FaShieldAlt, FaMoneyBillWave, FaBus, FaVolumeDown, FaWifi } from 'react-icons/fa';
 
 export default function NeighborhoodDetails() {
   const { name } = useParams();
