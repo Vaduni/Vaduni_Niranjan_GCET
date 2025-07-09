@@ -1,5 +1,4 @@
 // src/components/About.js
-import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -15,12 +14,10 @@ export default function About() {
             whileHover={{ scale: 1.05 }}
             className="relative w-full max-w-md h-64 overflow-hidden rounded-2xl shadow-lg"
           >
-            <Image
+            <img
               src="/images/about.jpg"
               alt="About NeighborFit"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-2xl"
+              className="w-full h-full object-cover rounded-2xl transition-transform duration-500"
             />
           </motion.div>
 
@@ -49,7 +46,7 @@ export default function About() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()} 
+              onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
             >
               <button
                 onClick={() => setShowPopup(false)}
