@@ -33,10 +33,23 @@ NeighborFit** solves the neighborhood-lifestyle matching problem. Users enter th
 3. On `/results`, the frontend fetches real neighborhood data from an API
 4. Each neighborhood is scored with this formula:
 
-```js
-matchScore = 
-  (safety * weight) +
-  (affordability * weight) +
-  (commute * weight) +
-  ((10 - noise) * weight) +
-  (internet * weight);
+
+-> Factors and Weights:
+| Factor        | Weight | Notes |
+|---------------|--------|-------|
+| Safety        | 30%    | Higher = safer |
+| Affordability | 20%    | Higher = cheaper |
+| Commute       | 20%    | Higher = easier travel |
+| Noise         | 10%    | Lower noise = better score |
+| Internet      | 20%    | Higher = better connectivity |
+
+The final score is sorted in descending order and converted to a percentage.
+
+-> Match score formula used
+ const score =
+            area.safety * prefs.safety * 0.3 +
+            area.affordability * prefs.affordability * 0.2 +
+            area.commute * prefs.commute * 0.2 +
+            (10 - area.noise) * prefs.noise * 0.1 +
+            area.internet * prefs.internet * 0.2;
+
