@@ -19,6 +19,8 @@ app.use(express.json());
 // Routes
 app.use('/api/neighborhoods', require('./routes/neighborhoods'));
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 
 const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {
