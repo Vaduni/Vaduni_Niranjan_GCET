@@ -8,8 +8,12 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: 'https://neighborfit-omega.vercel.app' 
+  origin: [
+    'https://neighborfit-omega.vercel.app',
+    'https://neighborfit-git-main-vaduni-niranjans-projects-32a1dc87.vercel.app'
+  ]
 }));
+
 app.use(express.json());
 
 // Routes
