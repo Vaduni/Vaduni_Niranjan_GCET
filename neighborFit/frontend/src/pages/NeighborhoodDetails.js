@@ -81,7 +81,6 @@ export default function NeighborhoodDetails() {
           <p className="text-gray-700">{area.description}</p>
         </div>
 
-        {/* Highlights with Icons */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl w-full">
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <FaShieldAlt className="mx-auto text-green-600 text-2xl mb-2" />
@@ -112,13 +111,6 @@ export default function NeighborhoodDetails() {
             <h4 className="text-lg font-semibold text-gray-700">Internet</h4>
             <p className="text-xl text-gray-800">{area.internet} / 10</p>
           </div>
-        </div>
-
-        {/* Contact Button */}
-        <div className="mt-8">
-          <button className="bg-green-500 text-white flex items-center gap-2 px-6 py-2 rounded-lg hover:bg-green-600 transition">
-            <FaPhoneAlt /> Contact for More Info
-          </button>
         </div>
       </div>
     </>
