@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import { FaShieldAlt, FaMoneyBillWave, FaBus, FaVolumeDown, FaWifi } from 'react-icons/fa';
 
 export default function NeighborhoodDetails() {
@@ -43,7 +42,6 @@ export default function NeighborhoodDetails() {
   if (!area) {
     return (
       <>
-        <Navbar />
         <div className="p-6 text-center">Loading neighborhood details...</div>
       </>
     );
@@ -51,7 +49,6 @@ export default function NeighborhoodDetails() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-gray-50 py-8 px-4 flex flex-col items-center">
         {/* Image Carousel */}
         <div className="relative w-full max-w-4xl mb-6">
