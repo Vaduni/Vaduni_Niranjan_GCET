@@ -9,9 +9,6 @@ Finding the right neighborhood that matches a person’s lifestyle is a challeng
 -> Live Demo
  [Click here to try NeighborFit](https://neighbourfit-three.vercel.app)
 
-->[Frontend Live](https://neighbourfit-three.vercel.app)
-->[Backend API Base URL](https://neighborfit-api.onrender.com)
-
 
 -> Project Objective
 
