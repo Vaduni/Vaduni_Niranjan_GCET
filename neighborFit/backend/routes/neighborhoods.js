@@ -4,7 +4,7 @@ const Neighborhood = require('../models/Neighborhood');
 
 //  POST route
 router.post('/', async (req, res) => {
-  console.log("✅ POST /api/neighborhoods hit");
+  console.log(" POST /api/neighborhoods hit");
 
   try {
     const newNeighborhood = new Neighborhood(req.body);
